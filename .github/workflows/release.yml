@@ -1,0 +1,30 @@
+name: Build Plugin Release
+
+on:
+  release:
+    types: [ prereleased, released ]
+
+jobs:
+  build:
+    name: Build Plugin Artifact
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Generate plugin artifact
+        run: |
+          mkdir -p release/local-testing
+          rsync -rc --exclude-from="$GITHUB_WORKSPACE/.distignore" "$GITHUB_WORKSPACE/" release/local-testing/ --delete --delete-excluded
+          cd "${GITHUB_WORKSPACE}/release" || exit
+          zip -r "${GITHUB_WORKSPACE}/local-testing.zip" .
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{github.workspace}}/local-testing.zip
+          asset_name: local-testing.zip
+          asset_content_type: application/zip
