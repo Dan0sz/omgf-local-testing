@@ -87,6 +87,19 @@ function add_async_google_fonts() {
 
 //add_action( 'wp_head', 'add_async_google_fonts' );
 
+function add_async_stylesheet_with_import() {
+	?>
+    <script>
+        let di = document.createElement('style');
+        di.id = 'async-stylesheet-with-import';
+        di.textContent = `@import"https://fonts.googleapis.com/css?family=Nunito:700&display=swap";*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;`
+        document.head.appendChild(di);
+    </script>
+	<?php
+}
+
+add_action( 'wp_head', 'add_async_stylesheet_with_import' );
+
 /**
  * Uses font-families from @see add_async_google_fonts()
  * @return void
