@@ -163,3 +163,15 @@ function generate_me_something() {
 }
 
 // add_action( 'wp_enqueue_scripts', 'generate_me_something' );
+
+function add_inline_kit_url() {
+	?>
+    <style f-forigin="undefined" f-origin="3" f-family="'eXchiWe9OMT:::Regular:::Rubik'" type="text/css">@font-face {
+            font-family: 'eXchiWe9OMT:::Regular:::Rubik';
+            font-style: normal;
+            src: url('https://fonts.gstatic.com/l/font?kit=iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UFc0brT0qw&skey=cee854e66788286d&v=v31');
+        }</style>
+	<?php
+}
+
+// add_action( 'wp_head', 'add_inline_kit_url' );
