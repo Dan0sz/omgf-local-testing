@@ -24,7 +24,7 @@ function use_local_licensing_endpoint() {
 	return 'https://daan.dev.local';
 }
 
-add_filter( 'ffwp_license_manager_api_url', 'use_local_licensing_endpoint' );
+// add_filter( 'ffwp_license_manager_api_url', 'use_local_licensing_endpoint' );
 
 /**
  * Test WebFont Loader
@@ -100,7 +100,7 @@ function add_webfont_loader() {
 	wp_localize_script( 'csf-google-web-fonts', 'WebFontConfig', [ 'google' => [ 'families' => [ "ABeeZee:400", "Lato:500,600" ] ] ] );
 }
 
-add_action( 'wp_enqueue_scripts', 'add_webfont_loader' );
+//add_action( 'wp_enqueue_scripts', 'add_webfont_loader' );
 
 function add_async_stylesheet_with_import() {
 	?>
@@ -263,4 +263,15 @@ function add_inline_kit_url() {
 	<?php
 }
 
-// add_action( 'wp_head', 'add_inline_kit_url' );
+add_action( 'wp_head', 'add_inline_kit_url' );
+
+/**
+ * This URL will cause a BAD REQUEST 400!!1 from Google, if HTML entities aren't formatted properly.
+ *
+ * @return void
+ */
+function add_weirdly_formatted_url() {
+	wp_enqueue_style( 'weirdly-formatted-url', 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&amp;subset=,latin' );
+}
+
+add_action( 'wp_enqueue_scripts', 'add_weirdly_formatted_url' );
