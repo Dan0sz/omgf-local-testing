@@ -263,7 +263,7 @@ function add_inline_kit_url() {
 	<?php
 }
 
-add_action( 'wp_head', 'add_inline_kit_url' );
+//add_action( 'wp_head', 'add_inline_kit_url' );
 
 /**
  * This URL will cause a BAD REQUEST 400!!1 from Google, if HTML entities aren't formatted properly.
@@ -274,4 +274,4 @@ function add_weirdly_formatted_url() {
 	wp_enqueue_style( 'weirdly-formatted-url', 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&amp;subset=,latin' );
 }
 
-add_action( 'wp_enqueue_scripts', 'add_weirdly_formatted_url' );
+//add_action( 'wp_enqueue_scripts', 'add_weirdly_formatted_url' );
