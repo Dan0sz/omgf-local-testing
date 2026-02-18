@@ -15,13 +15,13 @@ define( 'LOCAL_TESTING_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOCAL_TESTING_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 function remove_ssl_verify() {
-	add_filter( 'https_ssl_verify', '__return_false' );
+    add_filter( 'https_ssl_verify', '__return_false' );
 }
 
 add_action( 'init', 'remove_ssl_verify' );
 
 function use_local_licensing_endpoint() {
-	return 'https://daan.dev.local';
+    return 'https://daan.dev.local';
 }
 
 // add_filter( 'ffwp_license_manager_api_url', 'use_local_licensing_endpoint' );
@@ -30,7 +30,7 @@ function use_local_licensing_endpoint() {
  * Test WebFont Loader
  */
 function add_webfont_loader_sync_js() {
-	?>
+    ?>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
         WebFont.load({
@@ -39,13 +39,13 @@ function add_webfont_loader_sync_js() {
             }
         });
     </script>
-	<?php
+    <?php
 }
 
 //add_action( 'wp_head', 'add_webfont_loader_sync_js' );
 
 function add_webfont_loader_async_js() {
-	?>
+    ?>
     <script>
         WebFontConfig = {
             google: {families: ['Lato', 'Roboto']}
@@ -58,7 +58,7 @@ function add_webfont_loader_async_js() {
             s.parentNode.insertBefore(wf, s);
         })(document);
     </script>
-	<?php
+    <?php
 }
 
 // add_action( 'wp_head', 'add_webfont_loader_async_js' );
@@ -67,7 +67,7 @@ function add_webfont_loader_async_js() {
  * Test Local Stylesheets
  */
 function add_local_stylesheets() {
-	wp_enqueue_style( 'local-stylesheet', LOCAL_TESTING_PLUGIN_URL . 'assets/css/import-statements.css' );
+    wp_enqueue_style( 'local-stylesheet', LOCAL_TESTING_PLUGIN_URL . 'assets/css/import-statements.css' );
 }
 
 //add_action( 'wp_enqueue_scripts', 'add_local_stylesheets' );
@@ -80,7 +80,7 @@ function add_local_stylesheets() {
  * Test Async Google Fonts
  */
 function add_async_google_fonts() {
-	?>
+    ?>
     <script>
         let head_element = document.getElementsByTagName('head')[0];
         let link_element = document.createElement('link');
@@ -89,46 +89,46 @@ function add_async_google_fonts() {
         link_element.async = true;
         head_element.appendChild(link_element);
     </script>
-	<?php
+    <?php
 }
 
 //add_action( 'wp_head', 'add_async_google_fonts' );
 
 function add_webfont_loader() {
-	wp_enqueue_script( 'csf-google-web-fonts', esc_url( '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' ), [], null );
+    wp_enqueue_script( 'csf-google-web-fonts', esc_url( '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' ), [], null );
 
-	wp_localize_script( 'csf-google-web-fonts', 'WebFontConfig', [ 'google' => [ 'families' => [ "ABeeZee:400", "Lato:500,600" ] ] ] );
+    wp_localize_script( 'csf-google-web-fonts', 'WebFontConfig', [ 'google' => [ 'families' => [ "ABeeZee:400", "Lato:500,600" ] ] ] );
 }
 
 //add_action( 'wp_enqueue_scripts', 'add_webfont_loader' );
 
 function add_async_stylesheet_with_import() {
-	?>
+    ?>
     <script>
         let di = document.createElement('style');
         di.id = 'async-stylesheet-with-import';
         di.textContent = `@import"https://fonts.googleapis.com/css?family=Nunito:700&display=swap";*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;`
         document.head.appendChild(di);
     </script>
-	<?php
+    <?php
 }
 
 //add_action( 'wp_head', 'add_async_stylesheet_with_import' );
 
 function add_non_enqueued_stylesheet() {
-	?>
+    ?>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?display=swap&amp;family=Quattrocento+Sans%3A300%2C400%2C300%2C400%7CRoboto%3A300%2C400%2C300%2C400" media="all">
-	<?php
+    <?php
 }
 
 //add_action( 'wp_head', 'add_non_enqueued_stylesheet' );
 
 /**
- * Uses font-families from @see add_async_google_fonts()
- * @return void
+ * Uses font-families from @return void
+ * @see add_async_google_fonts()
  */
 function add_async_google_fonts_stylesheet() {
-	wp_enqueue_style( 'async-google-fonts-stylesheet', LOCAL_TESTING_PLUGIN_URL . 'assets/css/async-google-fonts.css' );
+    wp_enqueue_style( 'async-google-fonts-stylesheet', LOCAL_TESTING_PLUGIN_URL . 'assets/css/async-google-fonts.css' );
 }
 
 //add_action( 'wp_enqueue_scripts', 'add_async_google_fonts_stylesheet' );
@@ -139,16 +139,16 @@ function add_async_google_fonts_stylesheet() {
  * @return void
  */
 function add_the_ultimate_google_fonts_stylesheet_request() {
-	wp_enqueue_style(
-		'the-ultimate-google-fonts-stylesheet',
-		'view-source:https://fonts.googleapis.com/css2?display=swap&family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&subset=latin,latin-ext'
-	);
+    wp_enqueue_style(
+            'the-ultimate-google-fonts-stylesheet',
+            'view-source:https://fonts.googleapis.com/css2?display=swap&family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&subset=latin,latin-ext'
+    );
 }
 
 //add_action( 'wp_enqueue_scripts', 'add_the_ultimate_google_fonts_stylesheet_request' );
 
 function material_icons() {
-	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons&#038;display=swap&#038;ver=6.8' );
+    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons&#038;display=swap&#038;ver=6.8' );
 }
 
 //add_action( 'wp_enqueue_scripts', 'material_icons' );
@@ -159,13 +159,13 @@ function material_icons() {
  * @return void
  */
 function generate_me_something() {
-	wp_enqueue_style( 'daan-license-manager', 'https://fonts.googleapis.com/css?family=Poppins:500,600,800|Public+Sans:400,400italic,600,600italic' );
+    wp_enqueue_style( 'daan-license-manager', 'https://fonts.googleapis.com/css?family=Poppins:500,600,800|Public+Sans:400,400italic,600,600italic' );
 }
 
 // add_action( 'wp_enqueue_scripts', 'generate_me_something' );
 
 function add_inline_stylesheet() {
-	?>
+    ?>
     <style>
         /* devanagari */
         @font-face {
@@ -248,19 +248,19 @@ function add_inline_stylesheet() {
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
     </style>
-	<?php
+    <?php
 }
 
 // add_action( 'wp_head', 'add_inline_stylesheet' );
 
 function add_inline_kit_url() {
-	?>
+    ?>
     <style f-forigin="undefined" f-origin="3" f-family="'eXchiWe9OMT:::Regular:::Rubik'" type="text/css">@font-face {
             font-family: 'eXchiWe9OMT:::Regular:::Rubik';
             font-style: normal;
             src: url('https://fonts.gstatic.com/l/font?kit=iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UFc0brT0qw&skey=cee854e66788286d&v=v31');
         }</style>
-	<?php
+    <?php
 }
 
 //add_action( 'wp_head', 'add_inline_kit_url' );
@@ -271,7 +271,7 @@ function add_inline_kit_url() {
  * @return void
  */
 function add_weirdly_formatted_url() {
-	wp_enqueue_style( 'weirdly-formatted-url', 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&amp;subset=,latin' );
+    wp_enqueue_style( 'weirdly-formatted-url', 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&amp;subset=,latin' );
 }
 
 //add_action( 'wp_enqueue_scripts', 'add_weirdly_formatted_url' );
@@ -282,4 +282,36 @@ function load_all_fonts() {
     <?php
 }
 
-add_action( 'wp_head', 'load_all_fonts' );
+// add_action( 'wp_head', 'load_all_fonts' );
+
+function load_wp_fonts_local() {
+    ?>
+    <style class='wp-fonts-local'>
+        @font-face {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 400;
+            font-display: fallback;
+            src: url('https://staging.ut-lawyer.de/wp-content/uploads/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZ1rib2Bg-4.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 600;
+            font-display: fallback;
+            src: url('https://staging.ut-lawyer.de/wp-content/uploads/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZ1rib2Bg-4.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 500;
+            font-display: fallback;
+            src: url('https://staging.ut-lawyer.de/wp-content/uploads/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZ1rib2Bg-4.woff2') format('woff2');
+        }
+    </style>
+    <?php
+}
+
+// add_action( 'wp_head', 'load_wp_fonts_local' );
