@@ -124,8 +124,8 @@ function add_non_enqueued_stylesheet() {
 //add_action( 'wp_head', 'add_non_enqueued_stylesheet' );
 
 /**
- * Uses font-families from @return void
- * @see add_async_google_fonts()
+ * Uses font-families from @see add_async_google_fonts()
+ * @return void
  */
 function add_async_google_fonts_stylesheet() {
     wp_enqueue_style( 'async-google-fonts-stylesheet', LOCAL_TESTING_PLUGIN_URL . 'assets/css/async-google-fonts.css' );
@@ -315,3 +315,41 @@ function load_wp_fonts_local() {
 }
 
 // add_action( 'wp_head', 'load_wp_fonts_local' );
+
+function load_fontawesome() {
+    ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <?php
+}
+
+add_action( 'wp_head', 'load_fontawesome' );
+
+function load_analytics() {
+    ?>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <?php
+}
+
+add_action( 'wp_head', 'load_analytics' );
+
+function load_protocol_relative_bootstrap() {
+    ?>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <?php
+}
+
+add_action( 'wp_head', 'load_protocol_relative_bootstrap' );
+
+function load_base64_encoded_script() {
+    ?>
+    <script src="data:text/javascript;base64,dmFyIHggPSAxOyBjb25zb2xlLmxvZyh4KTs="></script>
+    <?php
+}
+
+add_action( 'wp_head', 'load_base64_encoded_script' );
+
+function load_ionicicons() {
+    ?>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1"/>
+    <?php
+}
