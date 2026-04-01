@@ -322,7 +322,7 @@ function load_fontawesome() {
     <?php
 }
 
-add_action( 'wp_head', 'load_fontawesome' );
+//add_action( 'wp_head', 'load_fontawesome' );
 
 function load_analytics() {
     ?>
@@ -330,7 +330,7 @@ function load_analytics() {
     <?php
 }
 
-add_action( 'wp_head', 'load_analytics' );
+//add_action( 'wp_head', 'load_analytics' );
 
 function load_protocol_relative_bootstrap() {
     ?>
@@ -338,7 +338,7 @@ function load_protocol_relative_bootstrap() {
     <?php
 }
 
-add_action( 'wp_head', 'load_protocol_relative_bootstrap' );
+//add_action( 'wp_head', 'load_protocol_relative_bootstrap' );
 
 function load_base64_encoded_script() {
     ?>
@@ -346,10 +346,20 @@ function load_base64_encoded_script() {
     <?php
 }
 
-add_action( 'wp_head', 'load_base64_encoded_script' );
+//add_action( 'wp_head', 'load_base64_encoded_script' );
 
 function load_ionicicons() {
     ?>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1"/>
     <?php
 }
+
+//add_action( 'wp_head', 'load_ionicicons' );
+
+function load_usercentrics() {
+    ?>
+    <script src="https://app.usercentrics.eu/browser-ui/latest/loader.js" async></script>
+    <?php
+}
+
+//add_action( 'wp_head', 'load_usercentrics' );
