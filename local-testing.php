@@ -283,3 +283,29 @@ function load_all_fonts() {
 }
 
 //add_action( 'wp_head', 'load_all_fonts' );
+
+/**
+ * This loads Font Awesome, with @font-face statements that contain query parameters. For testing OMGF Pro's Smart Optimize feature.
+ *
+ * @return void
+ */
+function load_font_awesome() {
+    wp_enqueue_style( 'font-awesome-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'load_font_awesome' );
+
+function load_font_awesome_element_in_head() {
+    ?>
+    <div>
+        <p>
+            Take a look at this icon: <i class="fa fa-home"></i>
+        </p>
+        <p>
+            Or this one: <i class="fa fa-search"></i> <i class="fa fa-folder-open-o"></i>
+        </p>
+    </div>
+    <?php
+}
+
+add_action( 'loop_start', 'load_font_awesome_element_in_head' );
