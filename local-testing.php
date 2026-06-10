@@ -253,6 +253,29 @@ function add_inline_stylesheet() {
 
 // add_action( 'wp_head', 'add_inline_stylesheet' );
 
+function add_ttf_inline() {
+    ?>
+    <style type="text/css">@font-face {
+            font-family: 'Fira Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/firasans/v18/va9E4kDNxMZdWfMOD5VfkA.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Fira Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnZKvuQQ.ttf) format('truetype');
+        }
+    </style>
+    <?php
+}
+
+// add_action( 'wp_head', 'add_ttf_inline' );
+
 function add_inline_kit_url() {
     ?>
     <style f-forigin="undefined" f-origin="3" f-family="'eXchiWe9OMT:::Regular:::Rubik'" type="text/css">@font-face {
