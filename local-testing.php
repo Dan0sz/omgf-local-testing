@@ -274,7 +274,7 @@ function add_ttf_inline() {
     <?php
 }
 
-add_action( 'wp_head', 'add_ttf_inline' );
+//add_action( 'wp_head', 'add_ttf_inline' );
 
 function add_inline_kit_url() {
     ?>
