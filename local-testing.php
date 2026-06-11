@@ -274,7 +274,7 @@ function add_ttf_inline() {
     <?php
 }
 
-//add_action( 'wp_head', 'add_ttf_inline' );
+add_action( 'wp_head', 'add_ttf_inline' );
 
 function add_inline_kit_url() {
     ?>
@@ -386,3 +386,26 @@ function load_usercentrics() {
 }
 
 //add_action( 'wp_head', 'load_usercentrics' );
+
+function load_inline_bunnycdn_import_statement() {
+    ?>
+    <style class="tve_custom_style">@import url(//fonts.bunny.net/css?family=Open+Sans:400,500,700,800,300,600&subset=latin);
+
+        @media (min-width: 300px) {
+            [data-css="tve-u-16ac68ee35b"] {min-width: 100%;min-height: 165px !important}
+
+            [data-css="tve-u-16ac68ef5af"] {margin-top: -23px !important;margin-bottom: 0px !important;padding-bottom: 51px !important}
+
+            [data-css="tve-u-16ac68fa786"] {background-image: linear-gradient(rgb(255 255 255 / .96), rgb(255 255 255 / .96)) !important;background-size: auto !important;background-position: 50% 50% !important;background-attachment: scroll !important;background-repeat: no-repeat !important;--background-image: linear-gradient(rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96)) !important;--background-size: auto !important;--background-position: 50% 50% !important;--background-attachment: scroll !important;--background-repeat: no-repeat !important;--tve-applied-background-image: linear-gradient(rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96)) !important}
+
+            [data-css="tve-u-16ac68ff296"] {width: 2000px;float: none;display: inline-block;margin: 25px auto 17px !important;padding-bottom: 0px !important;padding-top: 0px !important}
+
+            [data-css="tve-u-16ac68ef5af"] .tve-page-section-in {display: block}
+
+            [data-css="tve-u-1602adc6335"] {padding: 1px 0px !important;margin: 0px !important}
+        }
+    </style>
+    <?php
+}
+
+//add_action( 'wp_head', 'load_inline_bunnycdn_import_statement' );
