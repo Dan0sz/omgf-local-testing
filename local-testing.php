@@ -390,6 +390,8 @@ function load_usercentrics() {
 function load_inline_bunnycdn_import_statement() {
     ?>
     <style class="tve_custom_style">@import url(//fonts.bunny.net/css?family=Open+Sans:400,500,700,800,300,600&subset=latin);
+        /** This request results in an error */
+        @import url(https://fonts.bunny.net/css?family=Muli:700,400,600,500,300,800,200,900,300i,700i,400i,600i,500i,900i,800i,200i&subset=latin&display=swap);
 
         @media (min-width: 300px) {
             [data-css="tve-u-16ac68ee35b"] {min-width: 100%;min-height: 165px !important}
