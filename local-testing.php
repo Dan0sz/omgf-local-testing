@@ -307,6 +307,12 @@ function load_all_fonts() {
 
 // add_action( 'wp_head', 'load_all_fonts' );
 
+function test_magic_fallbacks() {
+    wp_enqueue_style( 'magic-fallbacks-test', 'https://fonts.googleapis.com/css?family=Neuton|Averia+Serif+Libre|Oxygen|Neuton|Fredoka+One');
+}
+
+// add_action( 'wp_enqueue_scripts', 'test_magic_fallbacks' );
+
 function load_wp_fonts_local() {
     ?>
     <style class='wp-fonts-local'>
